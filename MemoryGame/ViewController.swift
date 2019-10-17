@@ -19,27 +19,34 @@ class ViewController: UIViewController {
         UIImage(named: "nadal.jpg"),
         UIImage(named: "thiem.jpg"),
         UIImage(named: "tsitsipas.jpg")
-        
     ]
+    
+    var imagesShowed = [UIImage]()
 
     @IBOutlet weak var players: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
     @IBAction func playerRandom(_ sender: Any) {
-        for _ in 1...4 {
-            changer(segundos: 2)
-            
-        }
+        var i = 0
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {timer in
+           if i < 8 {
+            self.changer()
+            self.imagesShowed.append(self.players.image!)
+            print(self.players.image!)
+            }
+            i+=1
+            })
+        
         
     }
     
-    func changer(segundos: UInt32){
-        sleep(segundos)
-        let random = arc4random_uniform(8) //returns 0 to 2 randomly
-        
+    func changer(){
+        let random = arc4random_uniform(UInt32(images.count))
+            
         switch random {
         case 0:
             players.image = UIImage (named: "murray.jpg")
@@ -60,7 +67,10 @@ class ViewController: UIViewController {
         default:
             players.image = UIImage (named: "pelota.jpg")
         }
+        
+        
+        
+        
+        }
+        
     }
-    
-}
-
