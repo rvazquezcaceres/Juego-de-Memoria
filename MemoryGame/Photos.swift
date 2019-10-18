@@ -10,9 +10,10 @@ import UIKit
 
 class Photos: UIViewController {
     
+    @IBOutlet weak var fotos: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
     
     
