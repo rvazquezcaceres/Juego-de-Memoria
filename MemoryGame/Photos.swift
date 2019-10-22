@@ -42,9 +42,9 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if images[indexPath.row] == imagesShowed[0]{
+            imagesShowed.remove(at: 0)
             print("hola")
         }
-        
     }
     
     
