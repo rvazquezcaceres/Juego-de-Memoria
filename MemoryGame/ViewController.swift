@@ -1,6 +1,8 @@
  
 import UIKit
 
+var imagesShowed = [UIImage]()
+ 
 class ViewController: UIViewController {
     
     let images = [
@@ -15,7 +17,7 @@ class ViewController: UIViewController {
     ]
     
     var randomImage: [Int] = []
-    var imagesShowed = [UIImage]()
+    
 
     
     @IBOutlet weak var players: UIImageView!
@@ -33,7 +35,7 @@ class ViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {timer in
            if i < 7 {
             self.players.image = self.images[self.randomImage[i]]
-            self.imagesShowed.append(self.players.image!)
+            imagesShowed.append(self.players.image!)
             print(self.players.image!)
             }
             i+=1
@@ -49,5 +51,4 @@ class ViewController: UIViewController {
         }
         randomImage.shuffle()
     }
-    
-    }
+ }
