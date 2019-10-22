@@ -41,7 +41,10 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(imagesShowed)
+        if images[indexPath.row] == imagesShowed[0]{
+            print("hola")
+        }
+        
     }
     
     
