@@ -13,7 +13,7 @@ import UIKit
 class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate {
     
     
-    let images = [
+    var images = [
         UIImage(named: "djokovic.jpg"),
         UIImage(named: "federer.jpg"),
         UIImage(named: "kyrgios.jpg"),
@@ -23,7 +23,17 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
         UIImage(named: "thiem.jpg"),
         UIImage(named: "tsitsipas.jpg")
     ]
+    var i = 0
+    var lifes = 4
+    
+    @IBOutlet weak var textAgain: UILabel!
     @IBOutlet weak var fotos: UICollectionView!
+    @IBOutlet weak var buttonPlay: UIButton!
+    @IBOutlet weak var buttonExit: UIButton!
+    @IBOutlet weak var textWin: UILabel!
+    @IBOutlet weak var textLose: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fotos.dataSource = self
@@ -31,7 +41,7 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -41,11 +51,31 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if images[indexPath.row] == imagesShowed[0]{
-            imagesShowed.remove(at: 0)
-            print("hola")
+        
+        if i < 7{
+            if images[indexPath.row] == imagesShowed[0]{
+                imagesShowed.remove(at: 0)
+                images.remove(at: indexPath.row)
+                collectionView.reloadData()
+                print("hola")
+                i+=1
+            } else {
+                lifes-=1
+            }
         }
+        if lifes > 0{
+            textWin.isHidden = false
+            textAgain.isHidden = false
+            buttonPlay.isHidden = false
+            buttonExit.isHidden = false
+        } else {
+            textLose.isHidden = false
+            textAgain.isHidden = false
+            buttonPlay.isHidden = false
+            buttonExit.isHidden = false
+        }
+        
+        
     }
-    
     
 }

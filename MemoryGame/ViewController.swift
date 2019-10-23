@@ -46,7 +46,7 @@ class ViewController: UIViewController {
             })                                      
     }
     func imageRandom(){
-        for i in 1...7 {
+        for i in 0...7 {
             randomImage.append(i)
         }
         randomImage.shuffle()
