@@ -24,7 +24,6 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
         UIImage(named: "tsitsipas.jpg")
     ]
     var i = 0
-    var lifes = 4
     
     @IBOutlet weak var textAgain: UILabel!
     @IBOutlet weak var fotos: UICollectionView!
@@ -34,10 +33,12 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
     @IBOutlet weak var textLose: UILabel!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fotos.dataSource = self
         fotos.delegate = self
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -57,25 +58,31 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
                 imagesShowed.remove(at: 0)
                 images.remove(at: indexPath.row)
                 collectionView.reloadData()
-                print("hola")
                 i+=1
             } else {
-                lifes-=1
+                i+=1
+            }
+        } else {
+            if imagesShowed.count > 1{
+                textLose.isHidden = false
+                textAgain.isHidden = false
+                buttonPlay.isHidden = false
+                buttonExit.isHidden = false
+                
+            } else {
+                textWin.isHidden = false
+                textAgain.isHidden = false
+                buttonPlay.isHidden = false
+                buttonExit.isHidden = false
             }
         }
-        if lifes > 0{
-            textWin.isHidden = false
-            textAgain.isHidden = false
-            buttonPlay.isHidden = false
-            buttonExit.isHidden = false
-        } else {
-            textLose.isHidden = false
-            textAgain.isHidden = false
-            buttonPlay.isHidden = false
-            buttonExit.isHidden = false
-        }
-        
-        
     }
     
+    @IBAction func funcPlay(_ sender: Any) {
+        imagesShowed.removeAll()
+    }
+    
+    @IBAction func funcExit(_ sender: Any) {
+        exit(0)
+    }
 }
