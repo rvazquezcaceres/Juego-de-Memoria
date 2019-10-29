@@ -67,13 +67,11 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
                 textLose.isHidden = false
                 textAgain.isHidden = false
                 buttonPlay.isHidden = false
-                buttonExit.isHidden = false
                 
             } else {
                 textWin.isHidden = false
                 textAgain.isHidden = false
                 buttonPlay.isHidden = false
-                buttonExit.isHidden = false
             }
         }
     }
