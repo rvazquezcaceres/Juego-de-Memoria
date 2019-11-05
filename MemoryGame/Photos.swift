@@ -18,12 +18,13 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
         UIImage(named: "federer.jpg"),
         UIImage(named: "kyrgios.jpg"),
         UIImage(named: "medvedev.jpg"),
-        UIImage(named: "murray.jpg"),
+        UIImage(named: "shapovalov.jpg"),
         UIImage(named: "nadal.jpg"),
         UIImage(named: "thiem.jpg"),
         UIImage(named: "tsitsipas.jpg")
     ]
     var i = 0
+    var lifes = 4
     
     @IBOutlet weak var textAgain: UILabel!
     @IBOutlet weak var fotos: UICollectionView!
@@ -52,27 +53,27 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if i < 7{
+        print(lifes)
+        if images.count > 1{
             if images[indexPath.row] == imagesShowed[0]{
                 imagesShowed.remove(at: 0)
                 images.remove(at: indexPath.row)
                 collectionView.reloadData()
                 i+=1
             } else {
-                i+=1
+                lifes-=1
             }
-        } else {
-            if imagesShowed.count > 1{
+            
+            if lifes <= 0{
                 textLose.isHidden = false
                 textAgain.isHidden = false
                 buttonPlay.isHidden = false
-                
-            } else {
-                textWin.isHidden = false
-                textAgain.isHidden = false
-                buttonPlay.isHidden = false
             }
+            
+        } else if lifes > 0 {
+            textWin.isHidden = false
+            textAgain.isHidden = false
+            buttonPlay.isHidden = false
         }
     }
     

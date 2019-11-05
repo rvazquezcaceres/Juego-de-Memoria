@@ -62,9 +62,9 @@
 				7F94A21C2355AB8B00D6F825 /* ViewController.swift */,
 				7F94A21E2355AB8B00D6F825 /* Main.storyboard */,
 				7F94A2212355AB9500D6F825 /* Assets.xcassets */,
+				7F94A22C2355BA7F00D6F825 /* Photos.swift */,
 				7F94A2232355AB9500D6F825 /* LaunchScreen.storyboard */,
 				7F94A2262355AB9500D6F825 /* Info.plist */,
-				7F94A22C2355BA7F00D6F825 /* Photos.swift */,
 				7F9AF3C2235DA5E5004478E8 /* PhotoCollectionViewCell.swift */,
 			);
 			path = MemoryGame;

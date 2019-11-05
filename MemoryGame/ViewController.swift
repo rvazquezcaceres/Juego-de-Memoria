@@ -6,11 +6,11 @@ var imagesShowed = [UIImage]()
 class ViewController: UIViewController {
     
     let images = [
-        UIImage(named: "djokovic.jpg"),
+        UIImage(named: "djokovic.png"),
         UIImage(named: "federer.jpg"),
         UIImage(named: "kyrgios.jpg"),
         UIImage(named: "medvedev.jpg"),
-        UIImage(named: "murray.jpg"),
+        UIImage(named: "shapovalov.jpg"),
         UIImage(named: "nadal.jpg"),
         UIImage(named: "thiem.jpg"),
         UIImage(named: "tsitsipas.jpg")
