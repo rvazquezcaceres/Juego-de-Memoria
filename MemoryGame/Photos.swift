@@ -24,12 +24,11 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
         UIImage(named: "tsitsipas.jpg")
     ]
     var i = 0
-    var lifes = 4
+    var lifes = level - 2
     
     @IBOutlet weak var textAgain: UILabel!
     @IBOutlet weak var fotos: UICollectionView!
     @IBOutlet weak var buttonPlay: UIButton!
-    @IBOutlet weak var buttonExit: UIButton!
     @IBOutlet weak var textWin: UILabel!
     @IBOutlet weak var textLose: UILabel!
     
@@ -52,9 +51,12 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
         return celda
     }
     
+    //Con el primer if compruebo si el array que viene de la otra pantalla contiene más de 1 elemento, si lo tiene seguimos con las comprobaciones, si tiene menos comprobamos si tiene más de 0 vidas para poner que ha ganado
+    //Con el segundo if, compruebo si la imagen que has elegido corresponde con el orden de mostrado, cuando es así borramos la imagen del array de mostrado para comprobar la siguiente imagen, si no ha acertado le restamos una vida
+    //Si tiene menos de 0 vidas mostramos que ha perdido
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(lifes)
-        if images.count > 1{
+        if imagesShowed.count > 1{
             if images[indexPath.row] == imagesShowed[0]{
                 imagesShowed.remove(at: 0)
                 images.remove(at: indexPath.row)
@@ -79,9 +81,7 @@ class Photos: UIViewController, UICollectionViewDataSource,UICollectionViewDeleg
     
     @IBAction func funcPlay(_ sender: Any) {
         imagesShowed.removeAll()
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func funcExit(_ sender: Any) {
-        exit(0)
-    }
 }

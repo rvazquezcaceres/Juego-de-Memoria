@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,18 +21,53 @@
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0SD-6X-fUV">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-SV-eu1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="393"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-SV-eu1">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="09K-o0-PgM">
+                                                <variation key="heightClass=compact-widthClass=regular" constant="50"/>
+                                            </constraint>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Pulsa y juega">
+                                        <state key="normal" title="FACIL">
                                             <color key="titleColor" red="1" green="0.0" blue="0.024170271520000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="playerRandom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XJS-Hu-deb"/>
+                                            <action selector="easyLevel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1tQ-sY-3gu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QL9-aY-JVP">
+                                        <rect key="frame" x="0.0" y="100" width="414" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="KjM-Rg-AVO">
+                                                <variation key="heightClass=compact-widthClass=regular" constant="50"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="NORMAL">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.024170271520000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="mediumLevel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="azs-Ux-wKz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHL-Bs-3GT">
+                                        <rect key="frame" x="0.0" y="200" width="414" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="HqL-Vh-zce">
+                                                <variation key="heightClass=compact-widthClass=regular" constant="50"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="DIFICIL">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.024170271520000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="hardLevel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="unT-Zd-x8k"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pelota" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aaq-5o-q7g">
-                                        <rect key="frame" x="0.0" y="392.99999999999994" width="414.00000000000011" height="425.00000000000017"/>
+                                        <rect key="frame" x="0.0" y="299.99999999999994" width="414.00000000000011" height="518.00000000000011"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -47,6 +82,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="LevelMedium" destination="QL9-aY-JVP" id="mzE-mo-uVr"/>
+                        <outlet property="levelEasy" destination="vZh-SV-eu1" id="mTM-bx-Vwg"/>
+                        <outlet property="levelHard" destination="aHL-Bs-3GT" id="3GW-A7-oRf"/>
+                        <outlet property="levelMedium" destination="QL9-aY-JVP" id="Geo-fJ-2OC"/>
                         <outlet property="players" destination="Aaq-5o-q7g" id="tCC-E3-gIE"/>
                         <segue destination="OdF-x2-uuz" kind="show" identifier="chooseScreen" id="O6u-Pu-HGe"/>
                     </connections>
@@ -70,21 +109,21 @@
                                         <rect key="frame" x="0.0" y="0.0" width="404" height="778"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RPc-xf-yy9">
-                                            <size key="itemSize" width="123" height="123"/>
+                                            <size key="itemSize" width="162" height="182"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImagenCelda" id="h0n-57-N7o" customClass="PhotoCollectionViewCell" customModule="MemoryGame" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="123" height="123"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="162" height="182"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="123" height="123"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="162" height="182"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zbg-u4-lJ4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="123" height="123"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="162" height="182"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -126,7 +165,6 @@
                                         </state>
                                         <connections>
                                             <action selector="funcPlay:" destination="OdF-x2-uuz" eventType="touchUpInside" id="mUp-DO-OPF"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="0YB-sc-cIT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -159,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6R-4I-X1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911.38392857142856" y="17.39130434782609"/>
+            <point key="canvasLocation" x="910.14492753623199" y="16.741071428571427"/>
         </scene>
     </scenes>
     <resources>
